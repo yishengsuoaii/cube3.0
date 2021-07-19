@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./../commonJs/jquery-3.2.1.min.js"></script>
+    <script src="./../commonJs/flexible.js"></script>
+    <script src="./js/sha.js"></script>
+    <script src="./js/jweixin-1.6.0.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="codeInput">
+            <input type="text" maxlength="1" id="code1">
+            <input type="text" maxlength="1" id="code2">
+            <input type="text" maxlength="1" id="code3">
+            <input type="text" maxlength="1" id="code4">
+            <input type="text" maxlength="1" id="code5">
+            <input type="text" maxlength="1" id="code6">
+        </div>
+        <div id="submit">点击进入</div>
+    </div>
+
+    <script>
+        let data=window.location.search.substring(1).split("&")
+        var infoData =[]
+        data.forEach(item=>{
+            infoData.push(item.split("="))
+        })
+        if(!sessionStorage.getItem('cubeInfo')){
+            window.location.href='http://www.cube.vip/h5/wxlogin.html?key=' +infoData[1][1]
+        }
+        var imgSrc = ''
+        $(function(){
+
+            $.ajax({
+                url:'http://www.cube.vip/event/h5_login_password/',
+                type:'GET',
+                data:{
+                    event_uri_key:infoData[1][1]
+                },
+                success:function(result){
+                 
+                    if(result.msg==='success'){
+                        imgSrc = result.data.event_wallpaper
+                        $('#container').css('background-image','url('+result.data.event_wallpaper+')')
+                        var shaStr = ''
+                        var timeShare = createTimestamp()
+                        function createTimestamp() {
+                            return parseInt(new Date().getTime() / 1000);
+                        }
+                        var srcShare = createNonceStr()
+                        function  createNonceStr() {
+                            return Math.random().toString(36).substr(2, 15);
+                        }
+                        $.ajax({
+                            url:'http://www.cube.vip/event/h5_wx_share/',
+                            type:'GET',
+                            success:function(res){
+                                if(res.msg==='success'){
+                                    shaStr = sha1('jsapi_ticket='+res.data+'&noncestr='+srcShare+'&timestamp='+timeShare+'&url=http://www.cube.vip/h5/index.html'+ window.location.search)
+                                    wx.config({
+                                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                        appId: 'wx4f25eb3e0b8f7433', // 必填，公众号的唯一标识
+                                        timestamp: timeShare, // 必填，生成签名的时间戳
+                                        nonceStr: srcShare, // 必填，生成签名的随机串
+                                        signature: shaStr, // 必填，签名，见附录1
+                                        jsApiList: ['updateTimelineShareData', 'updateAppMessageShareData'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                                    });
+                                    
+                                    wx.ready(function() {
+                                        // 分享到朋友圈
+                                        wx.updateTimelineShareData({
+                                            title: '首页', // 分享标题
+                                            link: 'http://www.cube.vip/h5/index.html'+ window.location.search, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                            imgUrl: imgSrc, // 分享图标
+                                        });
+                                        
+                                        // 分享给朋友
+                                        wx.updateAppMessageShareData({
+                                            title: '首页', // 分享标题
+                                            desc: '邀请您观看直播!', // 分享描述
+                                            link: 'http://www.cube.vip/h5/index.html'+ window.location.search, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                            imgUrl: imgSrc, // 分享图标
+                                        });
+                                    })
+                                }
+                            }
+                        })
+
+                    }
+                }
+            })
+
+
+            if(infoData[0][1]==='False'){
+                    $('#codeInput').show()
+            } else {
+                $('#submit').show()
+            }
+            // 输入密码
+            $('#code1').focus(function () {
+				//第一个input框获得焦点时触发的事件
+				var txts = $("#codeInput input");
+				for (var i = 0; i < txts.length; i++) {
+					var t = txts[i];
+					t.index = i;
+					t.setAttribute("readonly", true);
+					t.onkeyup = function () {
+						
+						this.value = this.value.replace(/[^\d]/g,'');
+						var next = this.index + 1;
+						if (next > txts.length - 1) return;
+						txts[next].removeAttribute("readonly");
+						if (this.value) {
+							txts[next].focus();
+						}
+					}
+				}
+				txts[0].removeAttribute("readonly");
+			});
+
+			$("#codeInput").keydown(function (event) {
+				if (event.keyCode == 8) {
+					$('#codeInput input[type=text]').val("");
+					$('#code1').focus();
+				}
+			})
+            $('#code6').on('input',function(){
+                if($(this).val().length>0) {
+                    $('#submit').trigger('click')
+                }
+            })
+
+            $('#submit').on('click',function(){
+
+                if(infoData[0][1]==='False'){
+                    var codeStr=$('#code1').val()
+                    codeStr+=$('#code2').val()
+                    codeStr+=$('#code3').val()
+                    codeStr+=$('#code4').val()
+                    codeStr+=$('#code5').val()
+                    codeStr+=$('#code6').val()
+                    if(codeStr.length<6) {
+                        alert('请输入密码')
+                    } else{
+                        $.ajax({
+                            url:'http://www.cube.vip/event/h5_login_password/',
+                            type:'POST',
+                            data:{
+                                event_uri_key:infoData[1][1],
+                                password: codeStr
+                            },
+                            success:function(res){
+                                if(res.msg==='success'){
+                                    window.location.href='http://www.cube.vip/h5/live.html?key='+infoData[1][1]
+                                } else{
+                                    alert('密码错误,请重新输入')
+                                }
+                            }
+                        })
+                    }
+                } else {
+                    window.location.href='http://www.cube.vip/h5/live.html?key='+infoData[1][1]
+                }
+            })
+        })
+    
+    
+    </script>
+</body>
+</html>
