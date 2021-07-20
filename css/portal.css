@@ -242,6 +242,7 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  text-shadow: 0px 1px 2px rgba(20, 20, 20, 0.6);
 }
 .parentMain .containerBox .mainCont .mainLeft .mainLeft-wonderful .wonderful-channel .wonderful-channel-cont .add-wonderful {
   /* 立即添加精彩视频Or频道 */
