@@ -7,11 +7,19 @@
 
 .inputdiv {
     display: flex;
+    position: relative;
     border: 1px solid #D2D2D2 !important;
     background-color: #fff;
     height: 40px;
     line-height: 38px;
     padding: 0px 19px;
+}
+.eyes {
+    position: absolute;
+    right: 10px;
+    z-index: 2;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 .layui-input {
@@ -27,7 +35,7 @@
 
 .logo {
     display: block;
-    width: 540px;
+    width: 396px;
     height: 184px;
     margin: 0 auto;
 }
@@ -101,7 +109,6 @@
     border: none;
     border-radius: 0;
 }
-
 #hah {
     width: 100%;
     background-color: rgb(212, 94, 60);

@@ -112,7 +112,9 @@ $(function () {
                 data: $("#form").serialize(),
                 success: function (result) {
                     if (result.msg == "success") {
-                        window.location.href = "../login.html";
+                        layer.msg('密码修改成功!',function(){
+                            window.location.href = "../login.html"
+                          })
                     } else if(result.data=== 'Verification code error') {
                         layer.msg('验证码错误,请重新输入!')
                     } else {
@@ -124,6 +126,15 @@ $(function () {
 
     })
 
-
-
+    // 眼睛
+    $('#firstRye').hover(function(){
+        $('.txtPwd').prop('type','text')
+    },function(){
+        $('.txtPwd').prop('type','password')
+    })
+    $('#lastRye').hover(function(){
+        $('.txtPwd-1').prop('type','text')
+    },function(){
+        $('.txtPwd-1').prop('type','password')
+    })
 })
