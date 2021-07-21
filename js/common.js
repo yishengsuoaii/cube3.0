@@ -24,7 +24,10 @@ $(function () {
         })
     })
     
-
+    // 点击LOGO
+    $('.logImage').on('click',function(){
+        window.open('./../index.html')
+    })
 
     $.post({
         url: "http://www.cube.vip/account/userinfo/",

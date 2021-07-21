@@ -54,6 +54,7 @@
   width: 1.38rem;
   height: 0.64rem;
   margin-top: 0.08rem;
+  cursor: pointer;
 }
 #container .parentTop .loginNameDiv {
   min-width: 3.5rem;
