@@ -1,0 +1,51 @@
+@media screen and (min-width:750px) {
+    html {
+        font-size: 75px !important;
+    }
+}
+
+
+@media screen and (max-width:320px) {
+    html {
+        font-size: 32px !important;
+    }
+}
+
+@base_fontsize: 75;
+
+* {
+    margin: 0;
+}
+
+
+body {
+    width: (750rem/@base_fontsize);
+    min-width: (320rem/@base_fontsize);
+    margin: 0 auto;
+    #container {
+        width: 100%;
+        #successIcon {
+            display: block;
+            margin: (400rem/@base_fontsize) auto (40rem/@base_fontsize);
+            width: (242rem/@base_fontsize);
+            height: (242rem/@base_fontsize);
+        }
+        .title {
+            text-align: center;
+            font-size: (40rem/@base_fontsize);
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            line-height: (68rem/@base_fontsize);
+            color: #333333;
+        }
+        .info {
+            margin-top: (20rem/@base_fontsize);
+            text-align: center;
+            font-size: (34rem/@base_fontsize);
+            font-family: Arial;
+            font-weight: 400;
+            line-height: (56rem/@base_fontsize);
+            color: #999999;
+        }
+    }
+}

@@ -167,7 +167,7 @@
                         }else if(result.data === 'telphone exist'){
                             layer.msg('该手机号已注册,请在电脑端登录!')
                         }else if(result.msg==='success') {
-                            layer.msg('注册成功,为了更好地用户体验,请在电脑端登录!')
+                            window.location.href="./success.html"
                         } else if(result.msg==='error') {
                             layer.msg('注册失败,请重新注册!')
                         } 
