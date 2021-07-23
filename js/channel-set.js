@@ -460,8 +460,7 @@ $(function () {
             done: function (result) {
                 if (result.msg === 'success') {
                     layer.msg('上传成功!');
-                    $("#demo-cover").attr("src", result.data.channel_wallpaper + '?' +
-                        new Date().getTime());
+                        $('#demo-cover').css('background-image','url('+result.data.channel_wallpaper+ '?' +new Date().getTime()+')')
                 } else {
                     layer.msg('上传失败,请重试!');
 
@@ -997,7 +996,7 @@ $(function () {
         },
         success: function (result) {
             if (result.msg === 'success') {
-                $("#demo-cover").attr("src", result.data.channel_wallpaper);
+                $('#demo-cover').css('background-image','url('+result.data.channel_wallpaper + '?' +new Date().getTime()+')')
             }
         },
     });

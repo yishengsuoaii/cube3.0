@@ -20,7 +20,7 @@ body #container {
   width: 10rem !important;
   height: 100vh;
   background: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100%;
   position: relative;
 }
 body #container #codeInput {
@@ -28,9 +28,9 @@ body #container #codeInput {
   width: 10rem !important;
   height: 0.96rem !important;
   position: absolute;
-  top: 60%;
+  bottom: 20%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   text-align: center;
 }
 body #container #codeInput input {
@@ -50,19 +50,21 @@ body #container #submit {
   width: 6.90666667rem !important;
   height: 1.28rem !important;
   line-height: 1.28rem !important;
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0px 3px 10px 0px rgba(104, 123, 207, 0.2);
+  background: #000000;
+  border: 2px solid #FFFFFF;
+  opacity: 0.6;
+  box-shadow: 0px 0.04rem 0.09333333rem 0px rgba(0, 0, 0, 0.67), 0px -1px 2px 0px rgba(0, 0, 0, 0.32);
   border-radius: 0.64rem;
   font-size: 0.64rem !important;
   font-family: Source Han Sans CN;
   font-weight: 500;
-  text-shadow: 0px 2px 4px rgba(26, 83, 142, 0.2);
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
   color: #FFFFFF;
   text-align: center;
   cursor: pointer;
   position: absolute;
-  top: 60%;
+  bottom: 20%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   -webkit-tap-highlight-color: transparent;
 }

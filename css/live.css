@@ -258,9 +258,23 @@
   padding-top: 0.5rem;
 }
 .parentMain .contentBox .layui-tab .layui-tab-content #channelManage .channel-set .channel-set-content .container-basics .guidance .page-img .upload-page-img {
-  width: 3.75rem;
-  height: 6.67rem;
+  display: inline-block;
+  width: 2.88rem;
+  height: 6.26rem;
+  background: no-repeat;
+  background-size: 100%;
   vertical-align: top;
+  cursor: pointer;
+}
+.parentMain .contentBox .layui-tab .layui-tab-content #channelManage .channel-set .channel-set-content .container-basics .guidance .page-img .upload-page-img:hover #shadeImg {
+  display: block;
+}
+.parentMain .contentBox .layui-tab .layui-tab-content #channelManage .channel-set .channel-set-content .container-basics .guidance .page-img .upload-page-img #shadeImg {
+  display: none;
+  width: 2.02rem;
+  height: 4.1rem;
+  background-color: #ccc;
+  margin: 0 auto;
 }
 .parentMain .contentBox .layui-tab .layui-tab-content #channelManage .channel-set .channel-set-content .container-basics .introduce {
   box-sizing: border-box;

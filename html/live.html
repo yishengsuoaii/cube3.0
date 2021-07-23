@@ -156,8 +156,12 @@
                                                             <form class="layui-form formUpload" action="">
                                                                 <div class="tit1">此图片显示在进入直播页面之前，用于展示直播相关介绍内容</div>
                                                                 <ul class="upList">
+                                                                    <li class="tit2">鼠标移动到预览区域可查看内容安全区</li>
+                                                                    <li class="tit2">为能适配不同尺寸手机</li>
+                                                                    <li class="tit2">内容安全区域为建议的主信息显示区</li>
+                                                                    <li class="tit2">内容安全区 835*1600px</li>
+                                                                    <li class="tit2">背景图 1125*2436px</li>
                                                                     <li class="tit2">图片大小4m以内</li>
-                                                                    <li class="tit2">图片分辨率750*1334像素</li>
                                                                     <li class="tit2">支持png,jpg,jpeg格式</li>
                                                                 </ul>
                                                                 <div class="layui-upload" style="margin-left: 0.14rem;">
@@ -166,7 +170,9 @@
                                                             </form>
                                                             <div class="page-img">
                                                                 预览:
-                                                                <img class="upload-page-img" name="event_wallpaper" id="demo-cover">
+                                                                <div class="upload-page-img"  id="demo-cover">
+                                                                    <div id="shadeImg"></div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                     

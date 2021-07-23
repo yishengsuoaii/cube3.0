@@ -278,11 +278,26 @@
                                         font-weight: 400;
                                         color: #666666;
                                         padding-top: (50/100rem);
-
                                         .upload-page-img {
-                                            width: (375/100rem);
-                                            height: (667/100rem);
+                                            display: inline-block;
+                                            width: (288/100rem);
+                                            height: (626/100rem);
+                                            background: no-repeat;
+                                            background-size: 100%;
                                             vertical-align: top;
+                                            cursor: pointer;
+                                            &:hover {
+                                                #shadeImg {
+                                                    display: block;
+                                                }
+                                            }
+                                            #shadeImg {
+                                                display: none;
+                                                width: (202/100rem);
+                                                height: (410/100rem);
+                                                background-color: #ccc;
+                                                margin: 0 auto;
+                                            }
                                         }
                                     }
 
