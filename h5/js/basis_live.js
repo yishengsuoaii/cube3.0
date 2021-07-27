@@ -118,6 +118,12 @@ $(function () {
                     link.href = './css/sports_live.css';
                     document.getElementsByTagName("head")[0].appendChild(link);
                 }
+                // 想要视频
+                if(res.data.isopen_email){
+                    $('#msg').show().on('click',function () {
+                        window.location.href='./msg.html?key='+event_uri_key + '&style='+$(this).attr('data-id')
+                    })
+                }
             }
         }
     })

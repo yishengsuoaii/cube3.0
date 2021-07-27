@@ -295,7 +295,7 @@
                                                 display: none;
                                                 width: (202/100rem);
                                                 height: (410/100rem);
-                                                background-color: #ccc;
+                                                background-color: rgba(255, 255, 255, 0.5);
                                                 margin: 0 auto;
                                             }
                                         }
@@ -603,6 +603,90 @@
                                         position: relative;
 
                                         .encryption-preview {
+                                            font-size: (18/100rem);
+                                            font-family: Source Han Sans CN;
+                                            font-weight: 400;
+                                            color: #666666;
+                                            position: absolute;
+                                            top: 0;
+                                            left: -(45/100rem);
+                                        }
+                                    }
+                                }
+
+                                // 视频申请
+                                #msg {
+                                    width: 100%;
+                                    display: flex;
+
+                                    #msg_left {
+                                        margin-left: (120/100rem);
+                                        margin-top: (50/100rem);
+
+                                        .layui-form-label {
+                                            font-size: (18/100rem);
+                                            font-family: Source Han Sans CN;
+                                            font-weight: 400;
+                                            color: #333333;
+                                        }
+
+                                        .msg-hint {
+                                            height: (30/100rem);
+                                            font-size: (16/100rem);
+                                            font-family: Source Han Sans CN;
+                                            font-weight: 400;
+                                            color: #999999;
+                                            line-height: (30/100rem);
+                                            padding-left: (15/100rem);
+                                        }
+                                        .msg-title {
+                                            span {
+                                                color: #333;
+                                                font-size: (18/100rem);
+                                                margin-right: (10/100rem);
+                                            }
+                                            height: (30/100rem);
+                                            font-size: (16/100rem);
+                                            font-family: Source Han Sans CN;
+                                            font-weight: 400;
+                                            color: #999999;
+                                            line-height: (30/100rem);
+                                            padding-left: (15/100rem);
+                                        }
+
+                                        #msg-input {
+                                            height: (36/100rem);
+                                            margin-left: (15/100rem);
+                                            width: (320/100rem);
+                                            
+                                        }
+
+                                        #msg-submit {
+                                            width: (106/100rem);
+                                            height: (40/100rem);
+                                            line-height: 0.40rem;
+                                            background: #FF914D;
+                                            border-radius: (2/100rem);
+                                            margin: (30/100rem) 0 0 (150/100rem);
+                                            padding: 0;
+                                            font-size: 0.16rem;
+                                            &:hover {
+                                                background: #F2591A;
+                                            }
+                                        }
+                                    }
+
+                                    .msg_right {
+                                        width: (375/100rem);
+                                        height: (667/100rem);
+                                        margin-left: (243/100rem);
+                                        margin-top: (50/100rem);
+
+                                        background: url('./../image/msg.gif') no-repeat;
+                                        background-size: 100% 100%;
+                                        position: relative;
+
+                                        .msg-preview {
                                             font-size: (18/100rem);
                                             font-family: Source Han Sans CN;
                                             font-weight: 400;
@@ -2418,6 +2502,9 @@
                                                         background: #444444;
                                                         border-radius: (5/100rem);
                                                         cursor: pointer;
+                                                        &:hover {
+                                                            background: #707070;
+                                                        }
                                                     }
 
                                                     span {
@@ -2458,17 +2545,20 @@
                                                     }
 
                                                     .score-preview-input {
-                                                        width: (134/100rem);
-                                                        height: (30/100rem);
+                                                        width: (132/100rem);
+                                                        height: (28/100rem);
                                                         text-align: center;
                                                         background: #444;
                                                         border-radius: (5/100rem);
                                                         font-size: (24/100rem);
                                                         font-family: Source Han Sans CN;
                                                         font-weight: bold;
-                                                        line-height: (30/100rem);
-                                                        border: none;
+                                                        line-height: (28/100rem);
+                                                        border: (1/100rem) solid #444;
                                                         outline: none;
+                                                        &:hover {
+                                                            border: (1/100rem) solid #FF914D;
+                                                        }
                                                     }
                                                 }
 
@@ -2509,6 +2599,9 @@
                                                         text-align: center;
                                                         line-height: (22/100rem);
                                                         cursor: pointer;
+                                                        &:hover {
+                                                            background: #707070;
+                                                        }
                                                     }
 
                                                     .add-subtotal {

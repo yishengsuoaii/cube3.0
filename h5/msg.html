@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私信</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="./css/basis_msg.css">
+    <script src="../commonJs/jquery-3.2.1.min.js"></script>
+    <script src="./../commonJs/flexible.js"></script>
+    <script src="../layui/layui.js"></script>
+    <script src="./js/basis_msg.js"></script>
+</head>
+<body>
+    <div id="msg">
+        <p id="title">如果您想要这个视频文件 <br />请提交以下信息</p>
+        <form class="layui-form" action="">
+            <div id="describeBox">
+                <p>备注详情</p>
+                <textarea name="info"  required lay-verify="required"  maxlength="72" resize="none" id="describe" class="layui-textarea"></textarea>
+            </div>
+            
+            <div class="item">手机号*<input type="text" name="phone" lay-verify="phone" class="layui-input"></div>
+            <div class="item">邮箱*<input type="text" name="email" lay-verify="email"  class="layui-input"></div>
+            <p id="info">您提交的信息会以邮件的方式<br />
+                发送到主办方的邮箱</p>
+            <button class="layui-btn" id="btn" lay-submit lay-filter="msgSend">提交</button>
+        </form>
+    </div>
+</body>
+</html>

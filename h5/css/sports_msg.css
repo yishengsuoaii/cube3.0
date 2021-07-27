@@ -1,0 +1,7 @@
+#msg {
+  background: url(./../image/sports_bgmsg.png) no-repeat;
+  background-size: 100%;
+}
+#msg #btn {
+  background-color: #FF914D !important;
+}

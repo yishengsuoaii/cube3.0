@@ -1,0 +1,111 @@
+@media screen and (min-width:750px) {
+    html {
+        font-size: 75px !important;
+    }
+}
+
+
+@media screen and (max-width:320px) {
+    html {
+        font-size: 32px !important;
+    }
+}
+
+@base_fontsize: 75;
+
+* {
+    margin: 0;
+}
+
+body {
+    width: (750rem/@base_fontsize);
+    margin: 0 auto;
+    
+    #msg {
+        width: (750rem/@base_fontsize);
+        height: 100vh;
+        box-sizing: border-box;
+        padding-top: (160rem/@base_fontsize);
+        #title {
+            font-size: (40rem/@base_fontsize);
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            line-height:(68rem/@base_fontsize);
+            color: #FFFFFF;
+            text-align: center;
+        }
+        #describeBox {
+            width: (692rem/@base_fontsize);
+            height: (284rem/@base_fontsize);
+            background-color: #fff;
+            border-radius: (40rem/@base_fontsize);
+            margin: (48rem/@base_fontsize) auto;
+            overflow: hidden;
+            p {
+                height: (60rem/@base_fontsize);
+                line-height: (60rem/@base_fontsize);
+                color: #5A5A5A;
+                text-align: center;
+                font-size: (32rem/@base_fontsize);
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+            }
+            #describe {
+                width: (692rem/@base_fontsize);
+                height: (224rem/@base_fontsize);
+                outline: none;
+                border: 0;
+                color: #5A5A5A;
+                font-size: (32rem/@base_fontsize);
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                line-height: (48rem/@base_fontsize);
+                border-bottom-left-radius: (40rem/@base_fontsize);
+                border-bottom-right-radius: (40rem/@base_fontsize)
+            }
+        }
+        
+        .item {
+            width: (632rem/@base_fontsize);
+            height: (100rem/@base_fontsize);
+            padding: 0 (30rem/@base_fontsize);
+            background: #FFFFFF;
+            border: 1px solid #EBF1F0;
+            margin: 0 auto (32rem/@base_fontsize);
+            border-radius: (50rem/@base_fontsize);
+            line-height: (100rem/@base_fontsize);
+            font-size: (32rem/@base_fontsize);
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(104, 112, 137, 0.65);
+            position: relative;
+            input {
+                display: inline-block !important;
+                width: (500rem/@base_fontsize) !important;
+                height: (100rem/@base_fontsize) !important;
+                outline: none;
+                border: 0;
+                position: absolute;
+                right: (40rem/@base_fontsize);
+                top: 0;
+            }
+        }
+        #info {
+            font-size: (24rem/@base_fontsize);
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            line-height: (36rem/@base_fontsize);
+            color: #687089;
+            text-align: center;
+        }
+        #btn {
+            display: block;
+            width: (690rem/@base_fontsize);
+            height: (90rem/@base_fontsize);
+            border-radius: (45rem/@base_fontsize);
+            font-size: (34rem/@base_fontsize);
+            color: #fff;
+            margin: (48rem/@base_fontsize) auto;
+        }
+    }
+}

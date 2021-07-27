@@ -1,0 +1,8 @@
+#msg {
+  background: url(./../image/default_bgmsg.png) no-repeat;
+  background-size: 100%;
+
+}
+#msg #btn {
+  background-color: #0680FF !important;
+}

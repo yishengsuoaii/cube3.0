@@ -149,6 +149,7 @@
                                                     <li>直播窗口背景</li>
                                                     <li>预告/回放</li>
                                                     <li>频道加密</li>
+                                                    <li>视频申请</li>
                                                 </ul>
                                                 <div class="layui-tab-content">
                                                     <div class="layui-tab-item layui-show">
@@ -175,7 +176,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                    
                                                     </div>
                                                     <div class="layui-tab-item">
                                                         <div class="introduce">
@@ -274,6 +274,27 @@
                                                             </form>
                                                             <div class="encryption_right">
                                                                 <p class="encryption-preview">预览:  </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-tab-item">
+                                                        <!-- 视频申请 -->
+                                                        <div id="msg">
+                                                            <form class="layui-form" action="" id="msg_left">
+                                                                <div class="layui-form-item">
+                                                                    <label class="layui-form-label">接收邮件</label>
+                                                                    <div class="layui-input-block">
+                                                                        <input type="checkbox" name="switch" id="msg-switch" 
+                                                                            lay-filter="msg-switch"  lay-skin="switch">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="layui-form-item"><p class="msg-hint">开启后用来接收用户发送的想要视频文件的邮件申请</p></div>
+                                                                <div class="layui-form-item"><p class="msg-title"><span>绑定邮箱:</span>(用来接收用户的发送的邮件)</p></div>
+                                                                <input type="text" name="email" lay-verify="email" placeholder="请输入邮箱地址"  class="layui-input" id="msg-input">
+                                                                <button type="button" class="layui-btn layui-btn-danger" lay-submit lay-filter="msgSend" id="msg-submit">提交</button>
+                                                            </form>
+                                                            <div class="msg_right">
+                                                                <p class="msg-preview">预览:  </p>
                                                             </div>
                                                         </div>
                                                     </div>

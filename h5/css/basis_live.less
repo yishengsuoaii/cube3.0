@@ -240,10 +240,10 @@ body {
                             #giveLike {
                                 display: none;
                                 position: fixed;
-                                bottom: 100px;
-                                right: 20px;
-                                height: 40px;
-                                width: 40px;
+                                bottom: (200rem/@base_fontsize);
+                                right: (40rem/@base_fontsize);
+                                height: (80rem/@base_fontsize);
+                                width: (80rem/@base_fontsize);
                                 z-index: 21;
                                 cursor: pointer;
                                 border-radius: 50%;
@@ -252,11 +252,23 @@ body {
 
                             canvas {
                                 position: fixed;
-                                bottom: 110px;
+                                bottom: (220rem/@base_fontsize);
                                 right: 0px;
                                 z-index: 20;
                                 cursor: pointer;
                                 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                            }
+                            #msg {
+                                display: none;
+                                position: fixed;
+                                bottom: (300rem/@base_fontsize);
+                                right: (40rem/@base_fontsize);
+                                height: (80rem/@base_fontsize);
+                                width: (80rem/@base_fontsize);
+                                z-index: 22;
+                                cursor: pointer;
+                                border-radius: 50%;
+                                box-shadow: 0px 2px 20px 0px rgba(30, 112, 213, 0.1);
                             }
 
                             .chatList {

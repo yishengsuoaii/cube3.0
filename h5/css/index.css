@@ -51,7 +51,7 @@ body #container #submit {
   height: 1.28rem !important;
   line-height: 1.28rem !important;
   background: #000000;
-  border: 2px solid #FFFFFF;
+  border: 1px solid #FFFFFF;
   opacity: 0.6;
   box-shadow: 0px 0.04rem 0.09333333rem 0px rgba(0, 0, 0, 0.67), 0px -1px 2px 0px rgba(0, 0, 0, 0.32);
   border-radius: 0.64rem;

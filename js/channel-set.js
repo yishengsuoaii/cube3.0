@@ -28,6 +28,9 @@ $(function () {
     // 加密
     var codeFlag = 'True'
 
+    // 邮箱标志
+    var emailFlag = 'False'
+
 
     var allData = []
     var checkId = 3
@@ -718,7 +721,6 @@ $(function () {
             }
         })
 
-
         form.on('switch(code-switch)', function (data) {
             if (data.elem.checked) {
                 codeFlag = 'False'
@@ -772,7 +774,63 @@ $(function () {
                 }
             }
         })
+        // 绑定邮件开始
 
+        form.on('switch(msg-switch)', function (data) {
+            if (data.elem.checked) {
+                emailFlag = 'True'
+            } else {
+                emailFlag = 'False'
+            }
+        })
+        form.on('submit(msgSend)', function(data){
+            $.ajax({
+                type: 'POST',
+                url:'http://www.cube.vip/video/user_video/',
+                dataType: "json",
+                headers: {
+                    token: sessionStorage.getItem('token')
+                },
+                data: {
+                    event_id: event_id,
+                    event_email:data.field.email,
+                    isopen_email:emailFlag
+                },
+                success:function (res) {
+                    if (res.msg === 'success') {
+                        layer.msg('提交成功!');
+                    } else {
+                        layer.msg('提交失败,请重试!');
+                    }
+                }
+            })
+            return false;
+        });
+        // 获取邮箱是否开启
+        $.ajax({
+            type: 'GET',
+            url:'http://www.cube.vip/video/user_video/',
+            dataType: "json",
+            headers: {
+                token: sessionStorage.getItem('token')
+            },
+            data: {
+                event_id: event_id
+            },
+            success:function (res) {
+                if(res.msg==='success'){
+                    if(res.data.isopen_email) {
+                        emailFlag = 'True'
+                        $('#msg-switch').attr('checked', 'checked');
+                    } else {
+                        emailFlag = 'False'
+                        $('#msg-switch').removeAttr('checked');
+                    }
+                    $('#msg-input').val(res.data.event_email)
+                }
+            }
+        })
+        // 绑定邮箱  结束
         // 活动简介--------------------------------------------------------------------------------------------------
         layui.use('upload', function () {
             var upload = layui.upload;

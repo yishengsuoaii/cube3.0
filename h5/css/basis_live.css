@@ -198,10 +198,10 @@ body #live .layui-tab .layui-tab-content .layui-tab-item #chat .chatBox {
 body #live .layui-tab .layui-tab-content .layui-tab-item #chat .chatBox #giveLike {
   display: none;
   position: fixed;
-  bottom: 100px;
-  right: 20px;
-  height: 40px;
-  width: 40px;
+  bottom: 2.66666667rem;
+  right: 0.53333333rem;
+  height: 1.06666667rem;
+  width: 1.06666667rem;
   z-index: 21;
   cursor: pointer;
   border-radius: 50%;
@@ -209,11 +209,23 @@ body #live .layui-tab .layui-tab-content .layui-tab-item #chat .chatBox #giveLik
 }
 body #live .layui-tab .layui-tab-content .layui-tab-item #chat .chatBox canvas {
   position: fixed;
-  bottom: 110px;
+  bottom: 2.93333333rem;
   right: 0px;
   z-index: 20;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body #live .layui-tab .layui-tab-content .layui-tab-item #chat .chatBox #msg {
+  display: none;
+  position: fixed;
+  bottom: 4rem;
+  right: 0.53333333rem;
+  height: 1.06666667rem;
+  width: 1.06666667rem;
+  z-index: 22;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0px 2px 20px 0px rgba(30, 112, 213, 0.1);
 }
 body #live .layui-tab .layui-tab-content .layui-tab-item #chat .chatBox .chatList {
   width: 100%;

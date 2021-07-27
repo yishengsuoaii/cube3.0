@@ -542,7 +542,9 @@ $(function () {
                                 ${scoreHtml}
                                 </div>`
                                 getScoreStyle()
-                                renderHistoryScore()
+                                setTimeout(()=>{
+                                    renderHistoryScore()
+                                },0)
                             } 
                             // else if (item.appname == '背景替换') {
                             //     functionTitleSrc += `<li class="layui-this">背景替换</li>`
@@ -612,7 +614,9 @@ $(function () {
                                     ${scoreHtml}
                                 </div>`
                                 getScoreStyle()
-                                renderHistoryScore()
+                                setTimeout(()=>{
+                                    renderHistoryScore()
+                                },0)
                             } 
                             // else if (item.appname == '背景替换') {
                             //     functionTitleSrc += `<li>背景替换</li>`
@@ -1997,7 +2001,7 @@ $(function () {
                 type: 'GET',
                 url: "http://www.cube.vip/event/score_card_style/",
                 dataType: "json",
-                
+                async: false,
                 headers: {
                     token: sessionStorage.getItem('token')
                 },

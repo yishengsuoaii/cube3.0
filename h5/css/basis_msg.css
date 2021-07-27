@@ -1,0 +1,103 @@
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 75px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 32px !important;
+  }
+}
+* {
+  margin: 0;
+}
+body {
+  width: 10rem;
+  margin: 0 auto;
+}
+body #msg {
+  width: 10rem;
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 2.13333333rem;
+}
+body #msg #title {
+  font-size: 0.53333333rem;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 0.90666667rem;
+  color: #FFFFFF;
+  text-align: center;
+}
+body #msg #describeBox {
+  width: 9.22666667rem;
+  height: 3.78666667rem;
+  background-color: #fff;
+  border-radius: 0.53333333rem;
+  margin: 0.64rem auto;
+  overflow: hidden;
+}
+body #msg #describeBox p {
+  height: 0.8rem;
+  line-height: 0.8rem;
+  color: #5A5A5A;
+  text-align: center;
+  font-size: 0.42666667rem;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+}
+body #msg #describeBox #describe {
+  width: 9.22666667rem;
+  height: 2.98666667rem;
+  outline: none;
+  border: 0;
+  color: #5A5A5A;
+  font-size: 0.42666667rem;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 0.64rem;
+  border-bottom-left-radius: 0.53333333rem;
+  border-bottom-right-radius: 0.53333333rem;
+}
+body #msg .item {
+  width: 8.42666667rem;
+  height: 1.33333333rem;
+  padding: 0 0.4rem;
+  background: #FFFFFF;
+  border: 1px solid #EBF1F0;
+  margin: 0 auto 0.42666667rem;
+  border-radius: 0.66666667rem;
+  line-height: 1.33333333rem;
+  font-size: 0.42666667rem;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(104, 112, 137, 0.65);
+  position: relative;
+}
+body #msg .item input {
+  display: inline-block !important;
+  width: 6.66666667rem !important;
+  height: 1.33333333rem !important;
+  outline: none;
+  border: 0;
+  position: absolute;
+  right: 0.53333333rem;
+  top: 0;
+}
+body #msg #info {
+  font-size: 0.32rem;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  line-height: 0.48rem;
+  color: #687089;
+  text-align: center;
+}
+body #msg #btn {
+  display: block;
+  width: 9.2rem;
+  height: 1.2rem;
+  border-radius: 0.6rem;
+  font-size: 0.45333333rem;
+  color: #fff;
+  margin: 0.64rem auto;
+}

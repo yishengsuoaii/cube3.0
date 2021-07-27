@@ -1,6 +1,8 @@
 
 $(function () {
     $('#giveLike').show().attr('src','./image/default_like.png')
+    $('#msg').attr('src','./image/default_msg.png')
+    $('#msg').attr('data-id','1')
 })
 
 ! function (t, e) {
