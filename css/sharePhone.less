@@ -1,0 +1,151 @@
+@media screen and (min-width:750px) {
+    html {
+      font-size: 75px !important;
+    }
+  }
+  
+  
+  @media screen and (max-width:320px) {
+    html {
+      font-size: 32px !important;
+    }
+  }
+  
+  @base_fontsize: 75;
+  
+  * {
+    margin: 0;
+  }
+  
+  body {
+    width: (750rem/@base_fontsize) !important;
+    margin: 0 auto;
+    #container {
+        width: (750rem/@base_fontsize);
+        min-height: 100vh;
+        box-sizing: border-box;
+        padding: (40rem/@base_fontsize);
+        background-color: #302F2F;
+        #score {
+            width: (666rem/@base_fontsize);
+            height: (380rem/@base_fontsize);
+            background: rgba(255, 255, 255, 0.1);
+            border: (2rem/@base_fontsize) dashed #F2591A;
+            border-radius: (40rem/@base_fontsize);
+        }
+        #control {
+            width: (670rem/@base_fontsize);
+            height: (670rem/@base_fontsize);
+            margin-top: (40rem/@base_fontsize);
+            display: flex;
+            justify-content: space-between;
+            .half {
+                width: (312rem/@base_fontsize);
+                height: (670rem/@base_fontsize);
+                // 队伍比分
+                .score-preview-input {
+                    width: (312rem/@base_fontsize);
+                    height: (80rem/@base_fontsize);
+                    background: #666666;
+                    border-radius: (8rem/@base_fontsize);
+                    padding: 0;
+                    border: 0;
+                    outline: 0;
+                    font-size: (44rem/@base_fontsize);
+                    color: #F2591A;
+                    font-family: Source Han Sans CN;
+                    text-align: center;
+                }
+                // 队伍名称
+                .team-name {
+                    width: (308rem/@base_fontsize);
+                    height: (72rem/@base_fontsize);
+                    background: #444444;
+                    border-radius: (8rem/@base_fontsize);
+                    border: (2rem/@base_fontsize) solid #707070;
+                    margin: (24rem/@base_fontsize) 0;
+                    font-size: (28rem/@base_fontsize);
+                    font-family: Source Han Sans CN;
+                    color: #FF914D;
+                    font-weight: 400;
+                    text-align: center;
+                    line-height:(72rem/@base_fontsize);
+                }
+                // 场记
+                .script {
+                    width: (312rem/@base_fontsize);
+                    height: (36rem/@base_fontsize);
+                    font-size: (32rem/@base_fontsize);
+                    font-family: Source Han Sans CN;
+                    font-weight: bold;
+                    text-align: center;
+                    line-height: (36rem/@base_fontsize);
+                    color: #999999;
+                }
+                // 场记加减分
+                .team-subtotal {
+                    width: (312rem/@base_fontsize);
+                    height: (76rem/@base_fontsize);
+                    line-height: (76rem/@base_fontsize);
+                    text-align: center;
+                    margin: (24rem/@base_fontsize) 0;
+                    span {
+                        display: inline-block;
+                        width: (88rem/@base_fontsize);
+                        height: (72rem/@base_fontsize);
+                        background: #444444;
+                        border: (2rem/@base_fontsize) solid #707070;
+                        border-radius: (8rem/@base_fontsize);
+                        font-size: (36rem/@base_fontsize);
+                        font-family: Source Han Sans CN;
+                        font-weight: bold;
+                        color: #F2591A;
+                        text-align: center;
+                        vertical-align: top;
+                        line-height: (72rem/@base_fontsize);
+                    }
+                }
+                // 比分加减
+                .change-score {
+                    width: (312rem/@base_fontsize);
+                    height: (280rem/@base_fontsize);
+                    display: flex;
+                    justify-content: space-between;
+                    .change-list {
+                        width: (92rem/@base_fontsize);
+                        height: (280rem/@base_fontsize);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        div {
+                            width: (88rem/@base_fontsize);
+                            height: (72rem/@base_fontsize);
+                            background: #444444;
+                            border: (2rem/@base_fontsize) solid #707070;
+                            border-radius: (8rem/@base_fontsize);
+                            font-size: (36rem/@base_fontsize);
+                            font-family: Source Han Sans CN;
+                            font-weight: bold;
+                            color: #fff;
+                            text-align: center;
+                            line-height: (72rem/@base_fontsize);
+                        }
+                        span {
+                            width: (88rem/@base_fontsize);
+                            height: (72rem/@base_fontsize);
+                            background: #707070;
+                            border: (2rem/@base_fontsize) solid #707070;
+                            border-radius: (8rem/@base_fontsize);
+                            font-size: (36rem/@base_fontsize);
+                            font-family: Source Han Sans CN;
+                            font-weight: bold;
+                            color: #ff914d;
+                            text-align: center;
+                            line-height: (72rem/@base_fontsize);
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }

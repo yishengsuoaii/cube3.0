@@ -1,0 +1,140 @@
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 75px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 32px !important;
+  }
+}
+* {
+  margin: 0;
+}
+body {
+  width: 10rem !important;
+  margin: 0 auto;
+}
+body #container {
+  width: 10rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 0.53333333rem;
+  background-color: #302F2F;
+}
+body #container #score {
+  width: 8.88rem;
+  height: 5.06666667rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 0.02666667rem dashed #F2591A;
+  border-radius: 0.53333333rem;
+}
+body #container #control {
+  width: 8.93333333rem;
+  height: 8.93333333rem;
+  margin-top: 0.53333333rem;
+  display: flex;
+  justify-content: space-between;
+}
+body #container #control .half {
+  width: 4.16rem;
+  height: 8.93333333rem;
+}
+body #container #control .half .score-preview-input {
+  width: 4.16rem;
+  height: 1.06666667rem;
+  background: #666666;
+  border-radius: 0.10666667rem;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 0.58666667rem;
+  color: #F2591A;
+  font-family: Source Han Sans CN;
+  text-align: center;
+}
+body #container #control .half .team-name {
+  width: 4.10666667rem;
+  height: 0.96rem;
+  background: #444444;
+  border-radius: 0.10666667rem;
+  border: 0.02666667rem solid #707070;
+  margin: 0.32rem 0;
+  font-size: 0.37333333rem;
+  font-family: Source Han Sans CN;
+  color: #FF914D;
+  font-weight: 400;
+  text-align: center;
+  line-height: 0.96rem;
+}
+body #container #control .half .script {
+  width: 4.16rem;
+  height: 0.48rem;
+  font-size: 0.42666667rem;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  text-align: center;
+  line-height: 0.48rem;
+  color: #999999;
+}
+body #container #control .half .team-subtotal {
+  width: 4.16rem;
+  height: 1.01333333rem;
+  line-height: 1.01333333rem;
+  text-align: center;
+  margin: 0.32rem 0;
+}
+body #container #control .half .team-subtotal span {
+  display: inline-block;
+  width: 1.17333333rem;
+  height: 0.96rem;
+  background: #444444;
+  border: 0.02666667rem solid #707070;
+  border-radius: 0.10666667rem;
+  font-size: 0.48rem;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #F2591A;
+  text-align: center;
+  vertical-align: top;
+  line-height: 0.96rem;
+}
+body #container #control .half .change-score {
+  width: 4.16rem;
+  height: 3.73333333rem;
+  display: flex;
+  justify-content: space-between;
+}
+body #container #control .half .change-score .change-list {
+  width: 1.22666667rem;
+  height: 3.73333333rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body #container #control .half .change-score .change-list div {
+  width: 1.17333333rem;
+  height: 0.96rem;
+  background: #444444;
+  border: 0.02666667rem solid #707070;
+  border-radius: 0.10666667rem;
+  font-size: 0.48rem;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  line-height: 0.96rem;
+}
+body #container #control .half .change-score .change-list span {
+  width: 1.17333333rem;
+  height: 0.96rem;
+  background: #707070;
+  border: 0.02666667rem solid #707070;
+  border-radius: 0.10666667rem;
+  font-size: 0.48rem;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #ff914d;
+  text-align: center;
+  line-height: 0.96rem;
+}

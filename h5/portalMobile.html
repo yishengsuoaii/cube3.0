@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>部落</title>
     <link rel="stylesheet" href="./css/portalMobile.css">
+    <link rel="stylesheet" href="./../layui/css/layui.css">
     <script src="./../commonJs/jquery-3.2.1.min.js"></script>
     <script src="./../commonJs/flexible.js"></script>
     <script src="./js/sha.js"></script>
     <script src="./js/jweixin-1.6.0.js"></script>
+    <script src="./../layui/layui.js"></script>
 </head>
 <body>
     <div class="header">
@@ -25,7 +27,7 @@
             <p class="portalShow">
                 <!-- <img src="./image/mobile-eye.png" alt="">
                 <span class="showNum">访问量:11万</span> -->
-                <span class="portalBtn">简介</span>
+                <span class="portalBtn">简介 <i class="layui-icon layui-icon-down" id="arrows"></i>   </span>
             </p>
         </div>
     </div>
@@ -48,6 +50,7 @@
        var userName = ''
        var describe = ''
        var userImg = ''
+       let showFlag = 0
        // 获取已经添加的频道 和 视频
         let addedChannelData =[]
         let addedVideoData = []
@@ -197,6 +200,12 @@
             $('.portalDescribe').slideToggle()
             event.stopPropagation()
             event.preventDefault()
+            showFlag++
+            if(showFlag%2===1){
+                $('#arrows').removeClass('layui-icon-down').addClass('layui-icon-up')
+            } else {
+                $('#arrows').removeClass('layui-icon-up').addClass('layui-icon-down')
+            }
         })
         // 点击频道跳转
         $('.wonderful-channel-cont').on('click','.wonderful-channel-list',function(){

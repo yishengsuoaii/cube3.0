@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./../commonJs/jquery-3.2.1.min.js"></script>
+    <title>比分助手</title>
+</head>
+
+<body>
+    <div id="container">
+        
+    </div>
+    <script>
+        (function(win) {
+            if (document.documentElement.clientWidth >750) {
+                var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = './../js/share.js';
+                    document.body.appendChild(script);
+        
+                var link = document.createElement("link");
+                    link.type = "text/css";
+                    link.rel = "stylesheet";
+                    link.href = './../css/share.css';
+                    document.getElementsByTagName("head")[0].appendChild(link);
+            } else {
+                var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = './../commonJs/flexible.js';
+                    document.body.appendChild(script);
+                    var script1 = document.createElement("script");
+                    script1.type = "text/javascript";
+                    script1.src = './../js/sharePhone.js';
+                    document.body.appendChild(script1);
+        
+                var link = document.createElement("link");
+                    link.type = "text/css";
+                    link.rel = "stylesheet";
+                    link.href = './../css/sharePhone.css';
+                    document.getElementsByTagName("head")[0].appendChild(link);
+            }
+
+        })(window)
+    </script>
+</body>
+
+</html>

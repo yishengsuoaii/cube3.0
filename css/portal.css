@@ -150,7 +150,7 @@
 }
 .parentMain .containerBox .mainCont .mainLeft .mainLeft-top .portal-info .portal-info-s .portal-info-visit .portal-info-synopsis {
   display: inline-block;
-  width: 56px;
+  width: 80px;
   height: 26px;
   text-align: center;
   line-height: 26px;
@@ -161,6 +161,10 @@
   font-family: Source Han Sans CN;
   font-weight: 400;
   color: #F2591A;
+}
+.parentMain .containerBox .mainCont .mainLeft .mainLeft-top .portal-info .portal-info-s .portal-info-visit .portal-info-synopsis i {
+  font-size: 18px;
+  margin: 4px 5px;
 }
 .parentMain .containerBox .mainCont .mainLeft .mainLeft-line {
   width: 375px;

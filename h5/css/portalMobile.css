@@ -91,7 +91,7 @@ body .portalInfo .particularInfo .portalShow .showNum {
   margin: 0 0.26666667rem;
 }
 body .portalInfo .particularInfo .portalShow .portalBtn {
-  width: 1.36rem;
+  width: 2.13333333rem;
   height: 0.69333333rem;
   background: #FFFFFF;
   box-shadow: 0px 2px 8px 0px rgba(9, 1, 3, 0.1);
@@ -101,6 +101,10 @@ body .portalInfo .particularInfo .portalShow .portalBtn {
   line-height: 0.69333333rem;
   cursor: pointer;
   margin-top: 0.10666667rem;
+}
+body .portalInfo .particularInfo .portalShow .portalBtn i {
+  font-size: 0.48rem;
+  margin: 0.10666667rem 0.13333333rem;
 }
 body .segmentation-line {
   width: 10rem;

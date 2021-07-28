@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+}
+
+#container {
+    width: 1440px;
+    height: 900px;
+    margin: 0 auto;
+    background-color: #302F2F;
+
+    #title {
+        height: 64px;
+        line-height: 64px;
+        background-color: #FF914D;
+
+        img {
+            width: 48px;
+            height: 48px;
+            margin: 0 24px;
+        }
+
+        font-size: 24px;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: #FEFEFE;
+    }
+
+    #score {
+        width: 560px;
+        height: 328px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px dashed #FF914D;
+        border-radius: 20px;
+        margin: 60px auto;
+    }
+
+    #operate {
+        width: 1166px;
+        height: 260px;
+        border: 1px solid #FF914D;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        #team-score-content {
+            width: 1008px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            // 加减比分
+            .change-score {
+                width: 170px;
+                height: 140px;
+                display: flex;
+                justify-content: space-between;
+
+                .change-list {
+                    width: 46px;
+                    height: 140px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    div {
+                        width: 46px;
+                        height: 30px;
+                        text-align: center;
+                        line-height: 30px;
+                        font-size: 22px;
+                        background: #444444;
+                        border: 1px solid #707070;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        color: #fff;
+                        &:hover {
+                            background: #707070;
+                        }
+                    }
+
+                    span {
+                        width: 46px;
+                        height: 30px;
+                        text-align: center;
+                        line-height: 30px;
+                        font-size: 22px;
+                        font-family: Source Han Sans CN;
+                        font-weight: bold;
+                        color: #F2591A;
+                    }
+                }
+            }
+
+            // 队伍比分
+            .team-score {
+                width: 242px;
+                height: 150px;
+
+                .score-preview {
+                    width: 242px;
+                    height: 44px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    .score-preview-hot {
+                        width: 34px;
+                        height: 28px;
+                        background: #666;
+                        border-radius: 3px;
+                        font-size: 20px;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        line-height: 28px;
+                        text-align: center;
+                        color: #FF914D;
+                    }
+
+                    .score-preview-input {
+                        width: 190px;
+                        height: 42px;
+                        text-align: center;
+                        background: #666;
+                        border-radius: 5px;
+                        font-size: 34px;
+                        font-family: Arial;
+                        font-weight: bold;
+                        color: #F2591A;
+                        line-height: 42px;
+                        border: 1px solid #666;
+                        outline: none;
+                        &:hover {
+                            border: 1px solid #FF914D;
+                        }
+                    }
+                }
+
+                .team-name {
+                    width: 242px;
+                    height: 34px;
+                    background: #444;
+                    border-radius: 3px;
+                    font-size: 22px;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #DE8148;
+                    line-height: 34px;
+                    text-align: center;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin: 20px 0;
+                }
+
+                .team-subtotal {
+                    width: 242px;
+                    height: 32px;
+                    line-height: 32px;
+                    font-size: 23px;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #666666;
+
+                    span {
+                        display: inline-block;
+                        width: 46px;
+                        height: 32px;
+                        background: #444444;
+                        border-radius: 3px;
+                        font-size: 22px;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #FF914D;
+                        text-align: center;
+                        line-height: 32px;
+                        cursor: pointer;
+
+                        &:hover {
+                            background: #707070;
+                        }
+                    }
+
+                    .add-subtotal {
+                        margin: 0 10px;
+                    }
+                }
+
+                .team-right-subtotal {
+                    text-align: right;
+                }
+            }
+
+            // vs
+            .team-vs {
+                width: 60px;
+                height: 150px;
+                margin: 0 20px;
+                .vs {
+                    width: 60px;
+                    height: 44px;
+                    text-align: center;
+                    line-height: 44px;
+                    font-size: 34px;
+                    font-family: Source Han Sans CN;
+                    font-weight: 500;
+                    color: #FF914D;
+                }
+
+                .scene-name {
+                    width: 60px;
+                    height: 30px;
+                    text-align: center;
+                    line-height: 30px;
+                    margin-top: 26px;
+                    font-size: 23px;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #666666;
+                }
+            }
+
+        }
+    }
+}

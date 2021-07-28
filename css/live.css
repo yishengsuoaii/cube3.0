@@ -2876,6 +2876,9 @@
   cursor: pointer;
   border: 0.01rem solid rgba(255, 255, 255, 0.1);
 }
+.parentMain .contentBox .layui-tab .layui-tab-content #preside_over #operation-tab .layui-tab-content .layui-tab-item #dynamicBox .itemBox .dynamicItem:hover {
+  border: 0.01rem solid #FF914D;
+}
 .parentMain .contentBox .layui-tab .layui-tab-content #preside_over #operation-tab .layui-tab-content .layui-tab-item #dynamicBox .itemBox .active-dynamicItem {
   border: 0.01rem solid #FF914D;
 }
