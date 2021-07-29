@@ -39,6 +39,7 @@
         $.ajax({
                 url:'http://www.cube.vip/event/h5_get_name/',
                 type:'GET',
+                async: false,
                 data:{
                     event_uri_key:infoData[1][1]
                 },
