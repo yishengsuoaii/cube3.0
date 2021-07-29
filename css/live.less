@@ -2701,28 +2701,70 @@
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
-                                    #auto-btn   {
-                                        width: (96/100rem);
-                                        height: (36/100rem);
-                                        line-height: 0.36rem;
-                                        font-size: (16/100rem);
-                                        color: #fff;
-                                        border-radius: (5/100rem);
-                                        border: none;
+                                    .auto-item {
+                                        width: 0.96rem;
+                                        height: 0.42rem;
+                                        background: #666666;
+                                        border: 0.01rem solid #666;
+                                        border-radius: 0.04rem;
+                                        margin: 0 0.1rem;
+                                        text-align: center;
+                                        line-height: 0.42rem;
+                                        font-size: 0.16rem;
+                                        font-family: Source Han Sans CN;
+                                        font-weight: 400;
+                                        color: #FFFFFF;
+                                        border: 0.01rem solid #666;
                                         cursor: pointer;
-                                    }
-                                    .default-style {
-                                        background-color: #666666;
+                                        position: relative;
                                         &:hover {
-                                            background-color: rgba(255, 255, 255, 0.45);
+                                            border: 0.01rem solid #FF914D;
+                                            .autoInfo {
+                                                display: block;
+                                            }
+                                        }
+                                        .autoInfo {
+                                            display: none;
+                                            width: 1.2rem;
+                                            font-size: 0.14rem;
+                                            padding: 0.1rem 0.16rem;
+                                            color: #999;
+                                            border-radius: 0.04rem;
+                                            line-height: 0.14rem;
+                                            position: absolute;
+                                            left: 0.48rem;
+                                            bottom: -0.5rem;
+                                            transform: translateX(-50%);
+                                            background-color: #666;
+                                            .autoAngle {
+                                                position: absolute;
+                                                top: -0.06rem;
+                                                left: 50%;
+                                                transform: translateX(-50%)  rotate(45deg);
+                                                width: 0.12rem;
+                                                height: 0.12rem;
+                                                background-color:#666;
+                                            }
                                         }
                                     }
-                                    .active-style {
-                                        background-color: #4FB020;
-                                        &:hover {
-                                            background-color: #8ADA64;
-                                        }
-                                    }                       
+                                    .closeAutoActive {
+                                        border: 0.01rem solid #FF914D;
+                                        background: #666 url('./../image/autoActive.png') no-repeat;
+                                        background-size: 0.24rem 0.24rem;
+                                        background-position:center;
+                                    }     
+                                    .closeAutoDefault {
+                                        border: 0.01rem solid #666;
+                                        background:#666 url('./../image/autoDefault.png') no-repeat;
+                                        background-size: 0.24rem 0.24rem;
+                                        background-position:center;
+                                    }
+                                    .openActive{
+                                        border: 0.01rem solid #FF914D;
+                                        background: url('./../image/autoOpen.png') no-repeat;
+                                        background-size: 100%;
+                                        background-position:center;
+                                    }                      
                                 }
                                 #zoom-in {
                                    width: (1008/100rem);
@@ -3233,6 +3275,63 @@
                                         }
                                     }
                                 }
+                                // AI字幕
+                                #caption {
+                                    width: (1008/100rem);
+                                     height: (130/100rem);
+                                     position: relative;
+                                     #caption-btn   {
+                                         width: (96/100rem);
+                                         height: (36/100rem);
+                                         line-height: 0.36rem;
+                                         font-size: (16/100rem);
+                                         color: #fff;
+                                         border-radius: (5/100rem);
+                                         border: none;
+                                         cursor: pointer;
+                                         position: absolute;
+                                         top: 50%;
+                                         left: 50%;
+                                         transform: translate(-50%,-50%);
+                                         &:hover +.captionInfo {
+                                             display: block;
+                                         }
+                                     }
+                                     .default-style {
+                                         background-color: #666666;
+                                         &:hover {
+                                             background-color: rgba(255, 255, 255, 0.45);
+                                         }
+                                     }
+                                     .active-style {
+                                         background-color: #4FB020;
+                                         &:hover {
+                                              background-color: #8ADA64;
+                                         }
+                                     }
+                                     .captionInfo {
+                                        display: none;
+                                        font-size: 0.14rem;
+                                        padding: 0.1rem 0.16rem;
+                                        color: #999;
+                                        border-radius: 0.04rem;
+                                        line-height: 0.14rem;
+                                        position: absolute;
+                                        top: 78%;
+                                        left: 50%;
+                                        transform: translateX(-50%);
+                                        background-color: #666;
+                                        .captionAngle {
+                                            position: absolute;
+                                            top: -0.06rem;
+                                            left: 50%;
+                                            transform: translateX(-50%)  rotate(45deg);
+                                            width: 0.12rem;
+                                            height: 0.12rem;
+                                            background-color:#666;
+                                        }
+                                    }                   
+                                 }
                             }
 
                         }

@@ -116,7 +116,21 @@ $(function () {
     </div>`
     // 自动导切dom
     var autoHtml = `<div id="auto-cut">
-        <button type="button" class="default-style"  id="auto-btn">点击开启</button>
+        <div id="closeAuto" class="auto-item closeAutoActive">
+            <div class="autoInfo">
+                点击关闭<div class="autoAngle"></div>
+            </div>
+        </div>
+            <div id="extensive" class="auto-item openAuto" data-type="random">泛场景
+            <div class="autoInfo">
+                适用于所有场景<div class="autoAngle"></div>
+            </div>
+        </div>
+        <div id="singleLecture" class="auto-item openAuto" data-type="single_speaker">单人演讲
+            <div class="autoInfo">
+                对单人场景的优化<div class="autoAngle"></div>
+            </div> 
+        </div>
     </div>`
 
     // 拉近镜头dom
@@ -188,7 +202,15 @@ $(function () {
         </div>
     </div>
     `
-
+    // AI字幕dom
+    var captionHtml = `
+    <div id="caption">
+        <button type="button" class="default-style"  id="caption-btn">点击开启</button>
+        <div class="captionInfo">
+            开启后会增加五秒钟延时关闭则恢复<div class="captionAngle"></div>
+        </div>  
+    </div>
+    `
 
     // logo
     var logoFlag = 'True'
@@ -243,6 +265,10 @@ $(function () {
         state: 'off',
         // 自动切换
         autoState:'off',
+         // 自东类型
+         autoType:'',
+         // AI字幕
+         aiState:'off',
         // zoomIn
         zoomState: 'off',
         // ppt 
@@ -599,6 +625,12 @@ $(function () {
                                         <div id="kvSelect">选择图片</div>
                                     </div>
                                 </div>`
+                            } else if(item.appname == 'AI字幕'){
+                                functionTitleSrc += `<li class="layui-this">AI字幕</li>`
+                                functionContentSrc += `
+                                <div class="layui-tab-item layui-show">
+                                    ${captionHtml}
+                                </div>`
                             }
                         } else {
                             if (item.appname == 'logo') {
@@ -670,6 +702,12 @@ $(function () {
                                         <div id="kvStart" class="default-style">点击开启</div>
                                         <div id="kvSelect">选择图片</div>
                                     </div>
+                                </div>`
+                            }else if(item.appname == 'AI字幕'){
+                                functionTitleSrc += `<li>AI字幕</li>`
+                                functionContentSrc += `
+                                <div class="layui-tab-item">
+                                    ${captionHtml}
                                 </div>`
                             }
                         }
@@ -1177,6 +1215,7 @@ $(function () {
             domLiveRight.muted = true
         }
         // 拉流
+        let numReset = 0
         function pullFlow(ip, dom, index) {
             var server = 'http://' + ip + ':8088/janus'
             var janus = null;
@@ -1184,7 +1223,7 @@ $(function () {
             var opaqueId = "streamingtest-" + Janus.randomString(12);
 
             Janus.init({
-                debug: "all",
+                debug: false,
                 callback: function () {
                     if (!Janus.isWebrtcSupported()) {
                         return;
@@ -1254,6 +1293,13 @@ $(function () {
                     },
                     success: function (result) {
                         if (result["list"]) {
+                            // if(result["list"].length != 5) {
+                            //     numReset ++ 
+                            // }
+                            // if (numReset ===5) {
+                            //     sendReset()
+                            //     numReset = 0
+                            // }
                             streaming.send({
                                 message: {
                                     request: "watch",
@@ -1265,7 +1311,30 @@ $(function () {
                 });
             }
         }
-
+        function sendReset() {
+            var info = {
+                code: "FRONT_END_CHECKING",
+                system: {
+                    cube_rtc: {
+                        action: "reset"
+                    }
+                }
+            }
+            var formData = new FormData()
+                formData.append('stream_code', event_code)
+                formData.append('json_data', JSON.stringify(info))
+                $.ajax({
+                    type: "POST",
+                    url: 'http://www.cube.vip/director/director_instruct/',
+                    dataType: "json",
+                    headers: {
+                        token: sessionStorage.getItem('token')
+                    },
+                    data: formData,
+                    success:res=>{
+                    }
+                })
+        }
         // 机位一二三四音频滑块---------------------------------------------------------------------------------------------------
         slide_one = slider.render({
             elem: '#slideOne',
@@ -2893,15 +2962,29 @@ $(function () {
             }
             // 自动切换
             if (allInfo.autoState === 'off') {
-                $('#auto-btn').text('点击开启').addClass('default-style').removeClass('active-style')
+                $('#closeAuto').addClass('closeAutoActive').removeClass('closeAutoDefault').siblings('div').removeClass('openActive')
             } else {
-                $('#auto-btn').text('点击关闭').addClass('active-style').removeClass('default-style')
+                $('#closeAuto').addClass('closeAutoDefault').removeClass('closeAutoActive')
+                if(allInfo.autoType === 'random'){
+                    // 泛场景
+                    $('#extensive').addClass('openActive').siblings('div').removeClass('openActive')
+                }else if(allInfo.autoType === 'single_speaker'){
+                    // 单人演讲
+                    $('#singleLecture').addClass('openActive').siblings('div').removeClass('openActive')
+                }
             }
             // zoom-in 
             if (allInfo.zoomState === 'off') {
                 $('#zoom-btn').text('点击开启').addClass('default-style').removeClass('active-style')
             } else {
                 $('#zoom-btn').text('点击关闭').addClass('active-style').removeClass('default-style')
+            }
+
+            // AI字幕
+            if (allInfo.aiState === 'off') {
+                $('#caption-btn').text('点击开启').addClass('default-style').removeClass('active-style')
+            } else {
+                $('#caption-btn').text('点击关闭').addClass('active-style').removeClass('default-style')
             }
             // 渲染背景替换
             $('.bg-item').removeClass('bg-active').eq(allInfo.replaceFlag).addClass('bg-active')
@@ -3165,12 +3248,18 @@ $(function () {
                 })
         })
         // 自动导切-------------------------------------------------------------------------------------------------
-        $('#auto-btn').on('click', function () {
-            if (allInfo.autoState === 'off') {
-                allInfo.autoState = 'on'
-            } else {
-                allInfo.autoState = 'off'
-            }
+        $('#closeAuto').on('click',function(){
+            allInfo.autoState = 'off'
+            sendAuto($(this))
+        })
+        // 泛场景
+        $('.openAuto').on('click',function(){
+            allInfo.autoState = 'on'
+            allInfo.autoType = $(this).attr('data-type')
+            sendAuto($(this))
+        })
+
+        function sendAuto(dom) {
             var info = {
                 code: "FRONT_END_ACTION",
                 // 视频一拼二品三拼标志 true/false
@@ -3181,7 +3270,8 @@ $(function () {
                         scoreLocation: scoreLocation
                     },
                     auto_selector: {
-                        state: allInfo.autoState
+                        state: allInfo.autoState,
+                        type:allInfo.autoType
                     }
                     
                 }
@@ -3212,9 +3302,10 @@ $(function () {
                             if(res.msg==='success'){
                                 mainFlag = true 
                                 if (allInfo.autoState === 'off') {
-                                $(this).text('点击开启').addClass('default-style').removeClass('active-style')
+                                    dom.addClass('closeAutoActive').removeClass('closeAutoDefault').siblings('div').removeClass('openActive')
                                 } else {
-                                $(this).text('点击关闭').addClass('active-style').removeClass('default-style')
+                                    $(dom).addClass('openActive').siblings('div').removeClass('openActive')
+                                    $('#closeAuto').addClass('closeAutoDefault').removeClass('closeAutoActive')
                                 }
                                 sessionStorage.setItem(event_code, JSON.stringify(allInfo))
                             } else if(res.msg==='not_main'){
@@ -3231,7 +3322,7 @@ $(function () {
                         
                     }
                 })
-        })
+        }
         // zoom-in-------------------------------------------------------------------------------------------------
         $('#zoom-btn').on('click', function () {
             if (allInfo.zoomState === 'off') {
@@ -3295,6 +3386,78 @@ $(function () {
                                 allInfo.zoomState = 'on'
                             } else {
                                 allInfo.zoomState = 'off'
+                            }
+                        }        
+                    }
+                    
+                }
+            })
+            
+        })
+
+        // AI字幕
+        $('#caption-btn').on('click', function () {
+            if (allInfo.aiState === 'off') {
+                allInfo.aiState = 'on'
+            } else {
+                allInfo.aiState = 'off'
+            }
+            var info = {
+                code: "FRONT_END_ACTION",
+                // 视频一拼二品三拼标志 true/false
+                video: {
+                    
+                    score: {
+                        state: allInfo.state,
+                        update:0,
+                        scoreLocation: scoreLocation
+                    },
+                    ai: {
+                        state: allInfo.aiState
+                    }
+                    
+                }
+            }
+            var local_code = {
+                allInfo: allInfo,
+                scoreInfo:sessionStorage.getItem('score' + event_code)? JSON.parse(sessionStorage.getItem('score' + event_code)):null,
+                scoreImg:sessionStorage.getItem('imageBase64' + event_code)?sessionStorage.getItem('imageBase64' + event_code):0
+            }
+            var formData = new FormData()
+            formData.append('file', fileScore)
+            formData.append('stream_code', event_code)
+            formData.append('random_code', idOnly)
+            formData.append('local_code', JSON.stringify(local_code))
+            formData.append('json_data', JSON.stringify(info))
+            $.ajax({
+                type: "POST",
+                url: 'http://www.cube.vip/director/director_instruct/',
+                dataType: "json",
+                headers: {
+                    token: sessionStorage.getItem('token')
+                },
+                processData: false,
+                contentType: false,
+                data: formData,
+                success:res=>{
+                    if(mainFlag){
+                        if(res.msg==='success'){
+                            mainFlag = true 
+                            if (allInfo.aiState === 'off') {
+                                $(this).text('点击开启').addClass('default-style').removeClass('active-style')
+                            } else {
+                                $(this).text('点击关闭').addClass('active-style').removeClass('default-style')
+                            } 
+                            sessionStorage.setItem(event_code, JSON.stringify(allInfo))
+                        }
+                        else if(res.msg==='not_main'){
+                            mainFlag = false 
+                            not_remind()
+                            $('#requestFlag').html('辅').css('background','red')
+                            if (allInfo.aiState === 'off') {
+                                allInfo.aiState = 'on'
+                            } else {
+                                allInfo.aiState = 'off'
                             }
                         }        
                     }
