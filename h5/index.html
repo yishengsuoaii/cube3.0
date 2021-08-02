@@ -46,11 +46,11 @@
                 success:function(result){
                  
                     if(result.msg==='success'){
-                        $('title').text(result.event_title)
                         title = result.event_title
                     } else {
                         title = '首页'
                     }
+                    $('title').text(title)
                 }
                         
             })
