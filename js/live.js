@@ -3948,7 +3948,7 @@ $(function () {
                         pushUrl = serverSrc
                     } else {
                         pushUrl = serverSrc.endsWith('/') ? serverSrc+codeSrc : serverSrc+'/'+codeSrc
-                        if(codeSrc.indexOf('wxtoken')!==-1){
+                        if(codeSrc.indexOf('txSecret')!==-1){
                             flag = 'yes'
                         }
                     }
@@ -3998,7 +3998,7 @@ $(function () {
                         pushUrl = serverSrc
                     } else {
                         pushUrl = serverSrc.endsWith('/') ? serverSrc+codeSrc : serverSrc+'/'+codeSrc
-                        if(codeSrc.indexOf('wxtoken')!==-1){
+                        if(codeSrc.indexOf('txSecret')!==-1){
                             flag = 'yes'
                         }
                     }
@@ -4048,7 +4048,7 @@ $(function () {
                         pushUrl = serverSrc
                     } else {
                         pushUrl = serverSrc.endsWith('/') ? serverSrc+codeSrc : serverSrc+'/'+codeSrc
-                        if(codeSrc.indexOf('wxtoken')!==-1){
+                        if(codeSrc.indexOf('txSecret')!==-1){
                             flag = 'yes'
                         }
                     }
