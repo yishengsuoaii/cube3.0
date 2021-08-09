@@ -36,6 +36,12 @@ body #live #videoContainer #videoBox #refresh {
   width: 10rem;
   height: 5.625rem;
 }
+body #live #videoContainer #videoHls {
+  display: none;
+  width: 10rem;
+  height: 5.625rem;
+  overflow: hidden;
+}
 body #live #videoContainer #topDown {
   display: none;
   width: 10rem;

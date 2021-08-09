@@ -1,6 +1,6 @@
 let data = ''
 var infoData = []
-let event_uri_key = ''
+let event_uri_key = 'UlzoiFB2Vt6bHJX'
 if(sessionStorage.getItem('cubeInfo')){
    data = sessionStorage.getItem('cubeInfo').substring(1).split("&")
     data.forEach(item => {
@@ -24,6 +24,8 @@ var describe = ''
 var userImg = ''
 var liveSrc = ''
 $(function () {
+    
+    var hls =null
     layui.use(['form', 'element'], function () {
         var element = layui.element;
         var form = layui.form;
@@ -316,107 +318,21 @@ $(function () {
                 playFlay = true
                 $('#videoBox').css({
                     background:'',
-                })
-                videoJs =  new Aliplayer({
-                    "id": "videoBox",
-                    "source": url,
-                    "width":'10rem',
-                    "height":'5.625rem',
-                    "autoplay": false,
-                    "isLive": false,
-                    "rePlay": false,
-                    "playsinline": true,
-                    "preload": true,
-                    "controlBarVisibility": "click",
-                    "useH5Prism": true,
-                    "skinLayout": [
-                        {
-                          "name": "bigPlayButton",
-                          "align": "cc",
-                        },
-                        {
-                          "name": "H5Loading",
-                          "align": "cc"
-                        },
-                        {
-                          "name": "errorDisplay",
-                          "align": "tlabs",
-                          "x": 0,
-                          "y": 0
-                        },
-                        {
-                          "name": "infoDisplay"
-                        },
-                        {
-                          "name": "tooltip",
-                          "align": "blabs",
-                          "x": 0,
-                          "y": 56
-                        },
-                        {
-                          "name": "thumbnail"
-                        },
-                        {
-                          "name": "controlBar",
-                          "align": "blabs",
-                          "x": 0,
-                          "y": 0,
-                          "children": [
-                            {
-                              "name": "progress",
-                              "align": "blabs",
-                              "x": 0,
-                              "y": 44
-                            },
-                            {
-                              "name": "playButton",
-                              "align": "tl",
-                              "x": 15,
-                              "y": 12
-                            },
-                            {
-                              "name": "timeDisplay",
-                              "align": "tl",
-                              "x": 10,
-                              "y": 7
-                            },
-                            {
-                              "name": "subtitle",
-                              "align": "tr",
-                              "x": 15,
-                              "y": 12
-                            },
-                            {
-                              "name": "setting",
-                              "align": "tr",
-                              "x": 15,
-                              "y": 12
-                            },
-                            {
-                                "name": "fullScreenButton",
-                                "align": "tr",
-                                "x": 10,
-                                "y": 12
-                            },
-                            {
-                              "name": "volume",
-                              "align": "tr",
-                              "x": 5,
-                              "y": 10
-                            }
-                          ]
-                        }
-                      ]
-
-                })
+                }).hide()
+                $('#videoHls').show()
+                let videoDom = document.getElementById('videoHls')
+                if (Hls.isSupported()) {
+                    hls = new Hls();
+                    hls.loadSource(url);
+                    hls.attachMedia(videoDom);
+                }
                 $('#centerDown').on('click',function(){
                     $('#centerDown').hide()
-                    videoJs.play()
+                    videoDom.play()
                 })
-                videoJs.on('play',function(){
+                videoDom.addEventListener('play', function () { //播放开始执行的函数
                     $('#topDown').hide()
                     $('#centerDown').hide()
-                    
                 })
             }
         }
@@ -476,11 +392,13 @@ $(function () {
             success: function (res) {
                 if (res.msg === 'success') {
                     if(playFlay){
-                        videoJs.dispose()
+                        hls.destroy()
                     }
+                    $('#videoHls').hide()
                     $('#videoBox').css({
                         background:'',
-                    })
+                    }).show()
+                    
                      // 直播地址
                     liveSrc = res.data.pull_stream_m3u8_url
                     videoJs =  new Aliplayer({

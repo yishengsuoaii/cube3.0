@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="../layui/css/layui.css">
     <link rel="stylesheet" href="./css/basic_back.css">
     <link rel="stylesheet" href="./css/default_back.css">
-    <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.9.3/skins/default/aliplayer-min.css"/>
-    <script src="./../commonJs/aliplayer-h5-min.js"></script>
+    <script src="./../commonJs/hls.js"></script>
     <script src="../commonJs/jquery-3.2.1.min.js"></script>
     <script src="./../commonJs/flexible.js"></script>
     <script src="../layui/layui.js"></script>
@@ -20,8 +19,8 @@
 
 <body>
     <div id="play">
-        <div id="videoBox" class="prism-player">
-        </div>
+        <video id="videoBox"  controls>
+        </video>
         <div class="videoInfo">
             <p class="describe"></p>
             <p class="viewNum">
@@ -80,7 +79,7 @@
         var userInfo = []
         let videoName = ''
         var imgUrl = ''
-        var videoJs = null
+        
         if(sessionStorage.getItem('cubeInfo')){
             userInfoSrc= sessionStorage.getItem('cubeInfo').split("&")
             userInfoSrc.forEach(item => {
@@ -95,6 +94,7 @@
             window.location.href='http://www.cube.vip/h5/portallogin.html' + window.location.search
         }
         $(function () {
+            var videoJs = document.getElementById('videoBox')
             layui.use(['element'], function () {
                 var element = layui.element;
                 layui.element.init();
@@ -137,97 +137,11 @@
                                     if(item.video_download) {
                                         $('#video_down').show()
                                     }
-                                    videoJs=  new Aliplayer({
-                                        "id": "videoBox",
-                                        "source": item.video_uri,
-                                        "width":'10rem',
-                                        "height":'5.625rem',
-                                        "autoplay": true,
-                                        "isLive": false,
-                                        "rePlay": false,
-                                        "playsinline": true,
-                                        "preload": true,
-                                        "controlBarVisibility": "click",
-                                        "useH5Prism": true,
-                                        "skinLayout": [
-                                            {
-                                                "name": "bigPlayButton",
-                                                "align": "cc",
-                                            },
-                                            {
-                                                "name": "H5Loading",
-                                                "align": "cc"
-                                            },
-                                            {
-                                                "name": "errorDisplay",
-                                                "align": "tlabs",
-                                                "x": 0,
-                                                "y": 0
-                                            },
-                                            {
-                                                "name": "infoDisplay"
-                                            },
-                                            {
-                                                "name": "tooltip",
-                                                "align": "blabs",
-                                                "x": 0,
-                                                "y": 56
-                                            },
-                                            {
-                                                "name": "thumbnail"
-                                            },
-                                            {
-                                                "name": "controlBar",
-                                                "align": "blabs",
-                                                "x": 0,
-                                                "y": 0,
-                                                "children": [
-                                                    {
-                                                        "name": "progress",
-                                                        "align": "blabs",
-                                                        "x": 0,
-                                                        "y": 44
-                                                    },
-                                                    {
-                                                        "name": "playButton",
-                                                        "align": "tl",
-                                                        "x": 15,
-                                                        "y": 12
-                                                    },
-                                                    {
-                                                        "name": "timeDisplay",
-                                                        "align": "tl",
-                                                        "x": 10,
-                                                        "y": 7
-                                                    },
-                                                    {
-                                                        "name": "subtitle",
-                                                        "align": "tr",
-                                                        "x": 15,
-                                                        "y": 12
-                                                    },
-                                                    {
-                                                        "name": "setting",
-                                                        "align": "tr",
-                                                        "x": 15,
-                                                        "y": 12
-                                                    },
-                                                    {
-                                                        "name": "fullScreenButton",
-                                                        "align": "tr",
-                                                        "x": 10,
-                                                        "y": 12
-                                                    },
-                                                    {
-                                                        "name": "volume",
-                                                        "align": "tr",
-                                                        "x": 5,
-                                                        "y": 10
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    })
+                                    if (Hls.isSupported()) {
+                                        var hls = new Hls();
+                                        hls.loadSource(item.video_uri);
+                                        hls.attachMedia(videoJs);
+                                    }
                                } else {
                                 str += `<a class="backList" data-id="${item.video_id}" href="http://www.cube.vip/h5/portalback.html?id=${item.video_id}&key=${infoData[1][1]}&view=1&profile=1&cover=1'">
                                     <div class="backContent">
