@@ -157,6 +157,7 @@ body .wonderful-channel .wonderful-channel-cont .wonderful-channel-list img {
   height: 2.53333333rem;
 }
 body .wonderful-channel .wonderful-channel-cont .wonderful-channel-list .wonderful-channel-list-name {
+  width: 3.30666667rem;
   font-size: 0.37333333rem;
   font-family: Source Han Sans CN;
   font-weight: 400;
@@ -165,6 +166,9 @@ body .wonderful-channel .wonderful-channel-cont .wonderful-channel-list .wonderf
   bottom: 0.26666667rem;
   left: 0.26666667rem;
   text-shadow: 0px 1px 2px rgba(20, 20, 20, 0.6);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 body .wonderful-video {
   width: 10rem;

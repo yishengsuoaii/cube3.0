@@ -151,6 +151,9 @@
                             var hls = new Hls();
                             hls.loadSource(res.data.video_rui);
                             hls.attachMedia(videoJs);
+                            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                                videoJs.play();
+                            })
                         }else if (videoJs.canPlayType('application/vnd.apple.mpegurl')) {
                             videoJs.src = url;
                             $('#videoBox').attr({
