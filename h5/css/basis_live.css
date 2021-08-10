@@ -127,7 +127,7 @@ body #live #videoContainer #showNum {
   font-size: 0.32rem;
   color: #FFF;
   position: absolute;
-  left: 0.26666667rem;
+  right: 0.26666667rem;
   top: 0.4rem;
   background-color: #000;
   opacity: 0.6;

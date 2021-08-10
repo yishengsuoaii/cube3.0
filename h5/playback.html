@@ -151,6 +151,18 @@
                             var hls = new Hls();
                             hls.loadSource(res.data.video_rui);
                             hls.attachMedia(videoJs);
+                        }else if (videoJs.canPlayType('application/vnd.apple.mpegurl')) {
+                            videoJs.src = url;
+                            $('#videoBox').attr({
+                                'x5-playsinline':'',
+                                'playsinline':'',
+                                'webkit-playsinline':'',
+                                'x-webkit-airplay':'allow',
+                                'preload':"true",
+                            })
+                            videoJs.addEventListener('loadedmetadata',function() {
+                                videoJs.play();
+                            });
                         }
                     }
                 }

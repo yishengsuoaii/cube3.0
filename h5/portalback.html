@@ -141,6 +141,18 @@
                                         var hls = new Hls();
                                         hls.loadSource(item.video_uri);
                                         hls.attachMedia(videoJs);
+                                    }else if (videoJs.canPlayType('application/vnd.apple.mpegurl')) {
+                                        videoJs.src = url;
+                                        $('#videoBox').attr({
+                                            'x5-playsinline':'',
+                                            'playsinline':'',
+                                            'webkit-playsinline':'',
+                                            'x-webkit-airplay':'allow',
+                                            'preload':"true",
+                                        })
+                                        videoJs.addEventListener('loadedmetadata',function() {
+                                            videoJs.play();
+                                        });
                                     }
                                } else {
                                 str += `<a class="backList" data-id="${item.video_id}" href="http://www.cube.vip/h5/portalback.html?id=${item.video_id}&key=${infoData[1][1]}&view=1&profile=1&cover=1'">

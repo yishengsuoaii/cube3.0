@@ -1,6 +1,6 @@
 let data = ''
 var infoData = []
-let event_uri_key = 'UlzoiFB2Vt6bHJX'
+let event_uri_key = ''
 if(sessionStorage.getItem('cubeInfo')){
    data = sessionStorage.getItem('cubeInfo').substring(1).split("&")
     data.forEach(item => {
@@ -325,6 +325,21 @@ $(function () {
                     hls = new Hls();
                     hls.loadSource(url);
                     hls.attachMedia(videoDom);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        videoDom.play();
+                    })
+                } else if (videoDom.canPlayType('application/vnd.apple.mpegurl')) {
+                    videoDom.src = url;
+                    $('#videoHls').attr({
+                        'x5-playsinline':'',
+                        'playsinline':'',
+                        'webkit-playsinline':'',
+                        'x-webkit-airplay':'allow',
+                        'preload':"true",
+                    })
+                    videoDom.addEventListener('loadedmetadata',function() {
+                        videoDom.play();
+                    });
                 }
                 $('#centerDown').on('click',function(){
                     $('#centerDown').hide()
